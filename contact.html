@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Contact — Manglotel</title>
+
+  <meta name="description" content="Get in touch with Manglotel for web development, SEO, digital marketing, and business growth solutions." />
+
+  <meta property="og:image" content="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg" />
+  <meta property="og:image:type" content="image/png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#FFF9F5",
+              100: "#FFF4ED",
+              200: "#FFE8D9",
+              300: "#FFD6BA",
+              400: "#FFBF9F",
+              500: "#D4AF37",
+              600: "#B8941F",
+              700: "#9C7A18",
+              800: "#806012",
+              900: "#64480C"
+            },
+            cream: "#FFF9F5",
+            pink: {
+              50: "#FFF5F7",
+              100: "#FFE1E8",
+              200: "#FFC7D4",
+              300: "#FFADC0",
+              400: "#FF93AC",
+              500: "#FF6B9D"
+            },
+            golden: "#D4AF37",
+            ink: "#2D1B0E"
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(212, 175, 55, 0.15)",
+            card: "0 10px 25px rgba(212, 175, 55, 0.10)"
+          }
+        }
+      }
+    }
+  </script>
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body class="bg-cream text-ink selection:bg-pink-100 selection:text-ink">
+  <header class="bg-white/95 backdrop-blur border-b border-pink-100">
+  <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+
+    <!-- Logo + Name -->
+    <a href="./index.html" class="flex items-center gap-3">
+
+      <!-- Company Logo Image -->
+      <div class="h-10 w-10 rounded-xl overflow-hidden shadow-sm">
+        <img 
+          src="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg"
+          alt="Manglotel Logo"
+          class="h-full w-full object-cover"
+        />
+      </div>
+
+      <!-- Company Name -->
+      <div class="leading-tight">
+        <div class="text-2xl logo-cursive text-golden">
+          Manglotel
+        </div>
+      </div>
+    </a>
+
+    <!-- Pricing Button -->
+    <a href="./index.html#pricing"
+      class="hidden sm:inline-flex items-center justify-center rounded-xl border border-pink-200 bg-white px-4 py-2 text-ink font-semibold hover:bg-pink-50 transition">
+      View Pricing
+    </a>
+
+  </div>
+</header>
+<main class="mx-auto max-w-7xl px-4 py-12">
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <div class="animate-fadeUp">
+        <h1 class="text-3xl font-bold text-ink">Send Your Request</h1>
+        
+
+        <div class="mt-6 rounded-3xl bg-white border border-pink-100 shadow-soft p-6">
+          <div class="flex items-start gap-3">
+            <div class="h-10 w-10 rounded-2xl bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-golden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 4H8m9-8H7m12-5H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-bold text-ink">Selected Item</div>
+              <div id="selectedPreview" class="text-ink/70 text-sm mt-1">
+                Not selected yet — you can choose from dropdown below.
+              </div>
+            </div>
+          </div>
+
+          <form id="contactForm" class="mt-6 grid gap-4">
+            <!-- Hidden inputs for Web3Forms - ALL REQUIRED FIELDS -->
+            <input type="hidden" name="access_key" value="ed573845-ba48-4272-8d1b-d05dd221bbc9">
+            <input type="hidden" name="subject" value="New Service Inquiry - Website">
+            <input type="hidden" name="from_name" value="Website Contact Form">
+            <input type="hidden" name="redirect" value="false">
+            <input type="hidden" name="botcheck" value="">
+            
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="label">Name *</label>
+                <input id="name" class="input" name="name" required placeholder="Your Name" />
+              </div>
+              <div>
+                <label class="label">Email *</label>
+                <input id="email" class="input" type="email" name="email" required placeholder="your@email.com" />
+              </div>
+            </div>
+
+            <div>
+              <label class="label">Selected Service / Plan *</label>
+              <select id="selectedItem" class="input" name="selectedItem" required>
+                <option value="">Select a Service or Plan</option>
+
+                <optgroup label="Services">
+                  <option value="I want Website Development Service">I want Website Development Service</option>
+                  <option value="I want SEO Optimization Service">I want SEO Optimization Service</option>
+                  <option value="I want Digital Marketing Service">I want Digital Marketing Service</option>
+                  <option value="I want Social Media Helper Service">I want Social Media Helper Service</option>
+                  <option value="I want Google Ads Setup Service">I want Google Ads Setup Service</option>
+                  <option value="I want 1 Year Free Maintenance Support Service">I want 1 Year Free Maintenance Support Service</option>
+                </optgroup>
+
+                <optgroup label="Plans">
+                  <option value="I selected Starter Plan">I selected Starter Plan</option>
+                  <option value="I selected Professional Plan">I selected Professional Plan</option>
+                  <option value="I selected Enterprise Plan">I selected Enterprise Plan</option>
+                </optgroup>
+
+                <optgroup label="Other">
+                  <option value="I want Free Consultation">I want Free Consultation</option>
+                  <option value="General Inquiry">General Inquiry</option>
+                </optgroup>
+              </select>
+              <p class="text-xs text-ink/60 mt-2">
+                This will be auto-filled based on your previous click.
+              </p>
+            </div>
+
+            <div>
+              <label class="label">Message *</label>
+              <textarea id="message" class="input min-h-[140px]" name="message" required placeholder="Tell us what you need (pages, features, business type, timeline)..."></textarea>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-3">
+              <button type="submit" id="submitBtn" class="btn-primary w-full">
+                <span id="btnText">Send Message</span>
+                <span id="btnLoading" class="hidden">
+                  <svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                </span>
+              </button>
+              <a href="./index.html" class="btn-outline w-full text-center">Back to Website</a>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+
+      <aside class="animate-fadeUp delay-100">
+        <div class="rounded-3xl bg-white border border-pink-100 shadow-card p-6">
+          <h2 class="text-xl font-bold text-ink">What happens next?</h2>
+          <ul class="mt-4 space-y-3 text-sm text-ink/80">
+            <li class="li-check">We review your message & requirements</li>
+            <li class="li-check">We suggest the best plan/service</li>
+            <li class="li-check">We confirm timeline + delivery</li>
+            <li class="li-check">We start after approval</li>
+          </ul>
+
+          <div class="mt-6 rounded-2xl bg-gradient-to-br from-pink-50 to-brand-50 border border-pink-100 p-5">
+            <div class="font-semibold text-ink">Note</div>
+            <p class="mt-1 text-sm text-ink/70">
+              Your request will be sent directly to our team
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 rounded-3xl bg-white border border-pink-100 shadow-card p-6">
+          <h3 class="text-xl font-bold text-ink">Pricing reminder</h3>
+          <p class="mt-2 text-ink/70 text-sm">
+            Starter ₹35,000 • Professional ₹50,000 • Enterprise ₹65,000 (plus domain/server/hosting as stated).
+          </p>
+          <a href="./index.html#pricing" class="mt-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-golden to-brand-600 px-5 py-3 text-white font-semibold hover:shadow-lg transition w-full">
+            See Pricing
+          </a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Success Popup Modal - Simple like Shribalaji -->
+  <div id="successPopup" class="fixed inset-0 z-50 flex items-center justify-center hidden" style="background-color: rgba(0,0,0,0.5);">
+    <div class="bg-white rounded-xl p-8 max-w-sm mx-4 shadow-2xl transform transition-all">
+      <div class="text-center">
+        <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+          <svg class="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Success!</h3>
+        <p class="text-gray-600 mb-6">Your message has been sent.</p>
+        <button onclick="closeSuccessPopup()" class="w-full bg-gradient-to-r from-golden to-brand-600 text-white py-3 px-4 rounded-lg font-semibold hover:opacity-90 transition">
+          OK
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Popup Modal -->
+  <div id="errorPopup" class="fixed inset-0 z-50 flex items-center justify-center hidden" style="background-color: rgba(0,0,0,0.5);">
+    <div class="bg-white rounded-xl p-8 max-w-sm mx-4 shadow-2xl transform transition-all">
+      <div class="text-center">
+        <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100 mb-4">
+          <svg class="h-8 w-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Error</h3>
+        <p id="errorMessage" class="text-gray-600 mb-6">Something went wrong. Please try again.</p>
+        <button onclick="closeErrorPopup()" class="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-4 rounded-lg font-semibold hover:opacity-90 transition">
+          Try Again
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  
+<!-- Font Awesome (Required for Icons) -->
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<!-- Footer -->
+<footer class="bg-white border-t border-pink-100">
+  <div class="mx-auto max-w-7xl px-4 py-12">
+
+    <!-- Footer Grid -->
+    <div class="grid md:grid-cols-4 gap-10">
+
+      <!-- ================= Company Info ================= -->
+      <div>
+
+        <!-- Logo + Company Name -->
+        <div class="flex items-center gap-3">
+
+          <!-- Logo Image -->
+          <div class="h-12 w-12 rounded-xl overflow-hidden shadow-sm">
+            <img 
+              src="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg"
+              alt="Manglotel Logo"
+              class="h-full w-full object-cover"
+            />
+          </div>
+
+          <!-- Name -->
+          <div class="text-2xl logo-cursive text-golden">
+            Manglotel
+          </div>
+        </div>
+
+        <!-- Description -->
+        <p class="mt-4 text-sm text-ink/70 leading-relaxed">
+          Modern websites + marketing support to help your business grow with
+          professional solutions.
+        </p>
+
+        <!-- Modern Contact Icons (Lower Icons) -->
+        <div class="mt-6 flex items-center gap-4">
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/918878881555"
+            target="_blank"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-xl shadow-md hover:scale-110 transition">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:vrtechsolutions25@gmail.com"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-red-500 text-white text-xl shadow-md hover:scale-110 transition">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+
+          <!-- Phone -->
+          <a href="tel:8878881555"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500 text-white text-xl shadow-md hover:scale-110 transition">
+            <i class="fa-solid fa-phone"></i>
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- ================= Quick Links ================= -->
+      <div>
+        <h4 class="font-bold text-ink text-lg">Quick Links</h4>
+
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a class="footerlink hover:text-golden transition" href="#about">About</a></li>
+          <li><a class="footerlink hover:text-golden transition" href="#services">Services</a></li>
+          <li><a class="footerlink hover:text-golden transition" href="#portfolio">Portfolio</a></li>
+          <li><a class="footerlink hover:text-golden transition" href="#pricing">Pricing</a></li>
+          <li><a class="footerlink hover:text-golden transition" href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+
+      <!-- ================= Services ================= -->
+      <div>
+        <h4 class="font-bold text-ink text-lg">Services</h4>
+
+        <ul class="mt-4 space-y-2 text-sm text-ink/70">
+          <li>Website Development</li>
+          <li>SEO Services</li>
+          <li>Digital Marketing</li>
+          <li>Social Media Management</li>
+          <li>Google Ads Setup</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= Contact Info ================= -->
+      <div>
+        <h4 class="font-bold text-ink text-lg">Contact Info</h4>
+
+        <ul class="mt-4 space-y-3 text-sm text-ink/70">
+          <li>
+            <i class="fa-solid fa-envelope text-golden mr-2"></i>
+            vrtechsolutions25@gmail.com
+          </li>
+
+          <li>
+            <i class="fa-solid fa-phone text-golden mr-2"></i>
+            +91 8878881555, +91 9783396290
+          </li>
+
+          <li>
+            <i class="fa-solid fa-location-dot text-golden mr-2"></i>
+            Behind Rajkamal Hotel, Bhuwana, Udaipur (Rajasthan, India)
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <!-- ================= Bottom Footer ================= -->
+    <div
+      class="mt-12 pt-6 border-t border-pink-100 text-sm text-ink/60 flex flex-col md:flex-row items-center justify-between gap-3"
+    >
+      <p>© 2026 Manglotel | Billing Powered by VrTechSolution</p>
+    </div>
+
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script src="./script.js"></script>
+</body>
+</html>

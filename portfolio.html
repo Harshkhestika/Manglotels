@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Manglotel — Portfolio | Web Development Projects</title>
+
+  <meta name="description" content="Browse our portfolio of modern website development, SEO, and digital marketing projects. See how we help businesses grow online." />
+
+  <meta property="og:image" content="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg" />
+  <meta property="og:image:type" content="image/png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config with Light Cream, Pink & Golden Theme -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#FFF9F5",
+              100: "#FFF4ED",
+              200: "#FFE8D9",
+              300: "#FFD6BA",
+              400: "#FFBF9F",
+              500: "#D4AF37",
+              600: "#B8941F",
+              700: "#9C7A18",
+              800: "#806012",
+              900: "#64480C"
+            },
+            cream: "#FFF9F5",
+            pink: {
+              50: "#FFF5F7",
+              100: "#FFE1E8",
+              200: "#FFC7D4",
+              300: "#FFADC0",
+              400: "#FF93AC",
+              500: "#FF6B9D"
+            },
+            golden: "#D4AF37",
+            ink: "#2D1B0E"
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(212, 175, 55, 0.15)",
+            card: "0 10px 25px rgba(212, 175, 55, 0.10)",
+            hover: "0 20px 40px rgba(212, 175, 55, 0.20)"
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    .logo-cursive {
+      font-family: 'Great Vibes', cursive;
+    }
+    
+    .navlink {
+      @apply text-ink/80 hover:text-golden transition-colors;
+    }
+    
+    .mobilelink {
+      @apply block py-2 px-4 rounded-lg hover:bg-pink-50 hover:text-golden transition-colors;
+    }
+    
+    .footerlink {
+      @apply text-ink/70 hover:text-golden transition-colors;
+    }
+    
+    .btn-primary {
+      @apply inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-golden to-brand-600 px-5 py-2.5 text-white font-semibold shadow-soft hover:shadow-lg transition-all duration-300 hover:scale-[1.02];
+    }
+    
+    .service-card {
+      @apply rounded-2xl border border-pink-100 bg-white p-6 shadow-card hover:shadow-hover transition-all duration-300 hover:border-golden/30;
+    }
+    
+    .portfolio-card {
+      @apply rounded-2xl border border-pink-100 bg-white overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 hover:border-golden/30 hover:scale-[1.02];
+    }
+    
+    .price-card {
+      @apply rounded-2xl border border-pink-100 bg-white p-6 shadow-card hover:shadow-lg transition-all duration-300;
+    }
+    
+    .price-card.featured {
+      @apply border-2 border-golden shadow-soft;
+    }
+    
+    .review-card {
+      @apply rounded-2xl border border-pink-100 bg-white p-6 shadow-card;
+    }
+    
+    .badge {
+      @apply inline-block rounded-full bg-pink-100 text-pink-800 text-xs font-semibold px-3 py-1;
+    }
+    
+    .badge-featured {
+      @apply bg-gradient-to-r from-golden to-brand-500 text-white;
+    }
+    
+    .li-check {
+      @apply flex items-center gap-2;
+    }
+    
+    .li-check:before {
+      content: "✓";
+      @apply h-5 w-5 rounded-full bg-pink-100 text-golden flex items-center justify-center text-xs;
+    }
+    
+    .stars {
+      @apply text-golden text-sm;
+    }
+    
+    .portfolio-filter-btn {
+      @apply px-4 py-2 rounded-xl border border-pink-200 text-ink/80 hover:bg-pink-50 hover:text-golden hover:border-golden/30 transition-all duration-300;
+    }
+    
+    .portfolio-filter-btn.active {
+      @apply bg-gradient-to-r from-golden to-brand-500 text-white border-golden;
+    }
+    
+    .animate-fadeUp {
+      animation: fadeUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
+    
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .delay-75 {
+      animation-delay: 75ms;
+    }
+    
+    .delay-100 {
+      animation-delay: 100ms;
+    }
+    
+    .delay-150 {
+      animation-delay: 150ms;
+    }
+    
+    .delay-200 {
+      animation-delay: 200ms;
+    }
+    
+    .delay-250 {
+      animation-delay: 250ms;
+    }
+    
+    .portfolio-thumb {
+      @apply overflow-hidden h-48 bg-gradient-to-br from-pink-50 to-brand-50;
+    }
+    
+    .portfolio-thumb img {
+      @apply w-full h-full object-cover transition-transform duration-700;
+    }
+    
+    .portfolio-card:hover .portfolio-thumb img {
+      @apply scale-110;
+    }
+    
+    .project-tag {
+      @apply inline-block px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2;
+    }
+    
+    /* Unique portfolio grid layout */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-cream text-ink selection:bg-pink-100 selection:text-ink">
+
+  <!-- Top Announcement -->
+  <div class="w-full bg-gradient-to-r from-pink-50 to-brand-50 border-b border-pink-100">
+    <div class="mx-auto max-w-7xl px-4 py-2 text-sm flex items-center justify-between">
+      <p class="text-ink">
+        <span class="font-semibold text-golden">1 Year Free Service Facility Included</span> — Ask for a free consultation today.
+      </p>
+      <a href="./contact.html" class="text-golden font-semibold hover:text-brand-700">Contact →</a>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="sticky top-0 z-50 bg-cream/95 backdrop-blur border-b border-pink-100">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex items-center justify-between py-4">
+        <!-- Logo -->
+        <a href="./index.html" class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-golden to-brand-600 flex items-center justify-center shadow-sm overflow-hidden">
+            <img 
+              src="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg" 
+              alt="Logo"
+              class="h-full w-full object-cover rounded-xl"
+            />
+          </div>
+          <div class="leading-tight">
+            <div class="text-2xl logo-cursive text-golden">Manglotel</div>
+            <div class="text-xs text-ink/70 -mt-1">Web • SEO • Marketing</div>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium">
+          <a class="navlink" href="./index.html#home">Home</a>
+          <a class="navlink" href="./index.html#about">About</a>
+          <a class="navlink" href="./index.html#services">Services</a>
+          <a class="navlink" href="./portfolio.html" style="color: #D4AF37; font-weight: 600;">Portfolio</a>
+          <a class="navlink" href="./index.html#pricing">Pricing</a>
+          <a class="navlink" href="./index.html#reviews">Reviews</a>
+          <a class="navlink" href="./contact.html">Contact</a>
+
+          <a
+            class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-golden to-brand-600 px-4 py-2 text-white shadow-soft hover:shadow-lg transition"
+            href="./contact.html"
+            data-preset="Free Consultation"
+            data-type="general"
+          >
+            Free Consultation
+          </a>
+        </nav>
+
+        <!-- Mobile Button -->
+        <button id="menuBtn" class="lg:hidden inline-flex items-center justify-center rounded-xl border border-pink-200 px-3 py-2 text-ink hover:bg-pink-50">
+          <span class="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="lg:hidden hidden pb-4">
+        <div class="grid gap-2 text-sm font-medium">
+          <a class="mobilelink" href="./index.html#home">Home</a>
+          <a class="mobilelink" href="./index.html#about">About</a>
+          <a class="mobilelink" href="./index.html#services">Services</a>
+          <a class="mobilelink" href="./portfolio.html" style="background-color: rgba(212, 175, 55, 0.1); color: #D4AF37;">Portfolio</a>
+          <a class="mobilelink" href="./index.html#pricing">Pricing</a>
+          <a class="mobilelink" href="./index.html#reviews">Reviews</a>
+          <a class="mobilelink" href="./contact.html">Contact</a>
+
+          <a
+            class="mt-2 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-golden to-brand-600 px-4 py-2 text-white shadow-sm hover:shadow-lg transition"
+            href="./contact.html"
+            data-preset="Free Consultation"
+            data-type="general"
+          >
+            Free Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Portfolio Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-pink-50 via-cream to-brand-50">
+    <!-- Decorative elements -->
+    <div class="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-pink-200 blur-3xl opacity-30"></div>
+    <div class="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-brand-100 blur-3xl opacity-30"></div>
+    
+    <div class="relative mx-auto max-w-7xl px-4 py-16 lg:py-20">
+      <div class="text-center max-w-3xl mx-auto animate-fadeUp">
+        <div class="inline-flex items-center gap-2 rounded-full border border-golden/30 bg-white/80 px-4 py-2 text-sm text-ink shadow-sm mb-6">
+          <span class="h-2 w-2 rounded-full bg-golden"></span>
+          <span class="font-semibold text-golden">Our Work</span> — Real Projects, Real Results
+        </div>
+        
+        <h1 class="text-4xl lg:text-5xl font-bold tracking-tight text-ink">
+          Portfolio Showcase
+        </h1>
+        
+        <p class="mt-4 text-lg text-ink/80 leading-relaxed">
+          Explore our diverse portfolio of modern web development, SEO optimization, and digital marketing projects. Each project reflects our commitment to quality, innovation, and client success.
+        </p>
+        
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <button class="portfolio-filter-btn active" data-filter="all">All Projects</button>
+          <button class="portfolio-filter-btn" data-filter="web">Web Development</button>
+          <button class="portfolio-filter-btn" data-filter="seo">SEO & Marketing</button>
+          <button class="portfolio-filter-btn" data-filter="ecommerce">E-commerce</button>
+          <button class="portfolio-filter-btn" data-filter="branding">Branding</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Projects Section -->
+  <section class="mx-auto max-w-7xl px-4 py-12">
+    <div class="portfolio-grid">
+      <!-- Project 1: E-commerce Platform -->
+      <div class="portfolio-card animate-fadeUp" data-category="web ecommerce">
+        <div class="portfolio-thumb">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce Platform">
+          <div class="absolute top-4 right-4">
+            <span class="project-tag" style="background-color: rgba(212, 175, 55, 0.15); color: #9C7A18;">E-commerce</span>
+            <span class="project-tag" style="background-color: rgba(255, 107, 157, 0.15); color: #C2185B;">Web Dev</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-ink">Modern E-commerce Platform</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed">
+            Complete online store with product management, cart functionality, secure checkout, and admin dashboard.
+          </p>
+          
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-xs bg-pink-50 text-pink-800 px-3 py-1 rounded-full">React</span>
+            <span class="text-xs bg-brand-50 text-brand-800 px-3 py-1 rounded-full">Node.js</span>
+            <span class="text-xs bg-pink-50 text-pink-800 px-3 py-1 rounded-full">MongoDB</span>
+            <span class="text-xs bg-brand-50 text-brand-800 px-3 py-1 rounded-full">Payment Gateway</span>
+          </div>
+          
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+                <span class="font-bold text-golden">SC</span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-ink">ShopCart Ltd.</div>
+                <div class="text-xs text-ink/60">Retail Business</div>
+              </div>
+            </div>
+            <a href="./contact.html" data-preset="E-commerce Project Inquiry" class="text-golden font-semibold hover:text-brand-700 text-sm">
+              View Details →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: SEO & Content Marketing -->
+      <div class="portfolio-card animate-fadeUp delay-75" data-category="seo">
+        <div class="portfolio-thumb">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="SEO Dashboard">
+          <div class="absolute top-4 right-4">
+            <span class="project-tag" style="background-color: rgba(76, 175, 80, 0.15); color: #2E7D32;">SEO</span>
+            <span class="project-tag" style="background-color: rgba(33, 150, 243, 0.15); color: #1565C0;">Analytics</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-ink">SEO & Content Strategy</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed">
+            Comprehensive SEO overhaul with content strategy that increased organic traffic by 240% in 6 months.
+          </p>
+          
+          <div class="mt-4 flex items-center">
+            <div class="w-full bg-pink-100 rounded-full h-2.5">
+              <div class="bg-gradient-to-r from-golden to-brand-500 h-2.5 rounded-full" style="width: 85%"></div>
+            </div>
+            <span class="ml-3 text-xs font-semibold text-golden">85% ↑ Traffic</span>
+          </div>
+          
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+                <span class="font-bold text-golden">BC</span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-ink">BlogCentral</div>
+                <div class="text-xs text-ink/60">Content Platform</div>
+              </div>
+            </div>
+            <a href="./contact.html" data-preset="SEO Project Inquiry" class="text-golden font-semibold hover:text-brand-700 text-sm">
+              View Details →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Corporate Branding -->
+      <div class="portfolio-card animate-fadeUp delay-100" data-category="branding web">
+        <div class="portfolio-thumb">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Website">
+          <div class="absolute top-4 right-4">
+            <span class="project-tag" style="background-color: rgba(156, 39, 176, 0.15); color: #7B1FA2;">Branding</span>
+            <span class="project-tag" style="background-color: rgba(212, 175, 55, 0.15); color: #9C7A18;">Corporate</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-ink">Corporate Brand Identity</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed">
+            Complete brand identity development including logo, website, and marketing materials for a tech startup.
+          </p>
+          
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-xs bg-pink-50 text-pink-800 px-3 py-1 rounded-full">Brand Strategy</span>
+            <span class="text-xs bg-brand-50 text-brand-800 px-3 py-1 rounded-full">UI/UX Design</span>
+            <span class="text-xs bg-pink-50 text-pink-800 px-3 py-1 rounded-full">Marketing Kit</span>
+          </div>
+          
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+                <span class="font-bold text-golden">TC</span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-ink">TechCorp Inc.</div>
+                <div class="text-xs text-ink/60">Technology Firm</div>
+              </div>
+            </div>
+            <a href="./contact.html" data-preset="Branding Project Inquiry" class="text-golden font-semibold hover:text-brand-700 text-sm">
+              View Details →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4: Mobile App UI/UX -->
+      <div class="portfolio-card animate-fadeUp delay-150" data-category="web">
+        <div class="portfolio-thumb">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mobile App UI">
+          <div class="absolute top-4 right-4">
+            <span class="project-tag" style="background-color: rgba(0, 188, 212, 0.15); color: #00838F;">UI/UX</span>
+            <span class="project-tag" style="background-color: rgba(255, 193, 7, 0.15); color: #FF8F00;">Mobile App</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-ink">Fitness Mobile App UI/UX</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed">
+            User-centered mobile app design with intuitive workout tracking, nutrition planning, and progress analytics.
+          </p>
+          
+          <div class="mt-4 flex items-center">
+            <div class="flex items-center text-sm text-ink/70">
+              <i class="fas fa-star text-golden mr-1"></i>
+              <i class="fas fa-star text-golden mr-1"></i>
+              <i class="fas fa-star text-golden mr-1"></i>
+              <i class="fas fa-star text-golden mr-1"></i>
+              <i class="fas fa-star text-golden mr-1"></i>
+              <span class="ml-2 font-semibold">4.9 App Store Rating</span>
+            </div>
+          </div>
+          
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+                <span class="font-bold text-golden">FA</span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-ink">FitApp</div>
+                <div class="text-xs text-ink/60">Health & Fitness</div>
+              </div>
+            </div>
+            <a href="./contact.html" data-preset="Mobile App Inquiry" class="text-golden font-semibold hover:text-brand-700 text-sm">
+              View Details →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5: Digital Marketing Campaign -->
+      <div class="portfolio-card animate-fadeUp delay-200" data-category="seo">
+        <div class="portfolio-thumb">
+          <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marketing Campaign">
+          <div class="absolute top-4 right-4">
+            <span class="project-tag" style="background-color: rgba(233, 30, 99, 0.15); color: #AD1457;">Marketing</span>
+            <span class="project-tag" style="background-color: rgba(63, 81, 181, 0.15); color: #283593;">Google Ads</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-ink">Integrated Digital Campaign</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed">
+            Multi-channel digital marketing campaign combining social media, Google Ads, and email marketing.
+          </p>
+          
+          <div class="mt-4 grid grid-cols-3 gap-3 text-center">
+            <div>
+              <div class="text-lg font-bold text-golden">320%</div>
+              <div class="text-xs text-ink/60">ROI Increase</div>
+            </div>
+            <div>
+              <div class="text-lg font-bold text-golden">45%</div>
+              <div class="text-xs text-ink/60">Cost Reduction</div>
+            </div>
+            <div>
+              <div class="text-lg font-bold text-golden">2.5x</div>
+              <div class="text-xs text-ink/60">Lead Growth</div>
+            </div>
+          </div>
+          
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+                <span class="font-bold text-golden">MC</span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-ink">MarketConnect</div>
+                <div class="text-xs text-ink/60">Marketing Agency</div>
+              </div>
+            </div>
+            <a href="./contact.html" data-preset="Marketing Campaign Inquiry" class="text-golden font-semibold hover:text-brand-700 text-sm">
+              View Details →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6: SaaS Dashboard -->
+      <div class="portfolio-card animate-fadeUp delay-250" data-category="web">
+        <div class="portfolio-thumb">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="SaaS Dashboard">
+          <div class="absolute top-4 right-4">
+            <span class="project-tag" style="background-color: rgba(0, 150, 136, 0.15); color: #00695C;">SaaS</span>
+            <span class="project-tag" style="background-color: rgba(121, 85, 72, 0.15); color: #4E342E;">Dashboard</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-ink">Analytics SaaS Platform</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed">
+            Comprehensive SaaS analytics dashboard with real-time data visualization, reporting, and team collaboration.
+          </p>
+          
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-xs bg-pink-50 text-pink-800 px-3 py-1 rounded-full">Vue.js</span>
+            <span class="text-xs bg-brand-50 text-brand-800 px-3 py-1 rounded-full">Python</span>
+            <span class="text-xs bg-pink-50 text-pink-800 px-3 py-1 rounded-full">PostgreSQL</span>
+            <span class="text-xs bg-brand-50 text-brand-800 px-3 py-1 rounded-full">WebSockets</span>
+          </div>
+          
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+                <span class="font-bold text-golden">DA</span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-ink">DataAnalytica</div>
+                <div class="text-xs text-ink/60">SaaS Company</div>
+              </div>
+            </div>
+            <a href="./contact.html" data-preset="SaaS Platform Inquiry" class="text-golden font-semibold hover:text-brand-700 text-sm">
+              View Details →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Portfolio Stats -->
+    <div class="mt-16 rounded-3xl border border-pink-100 bg-white/80 shadow-card p-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl font-bold text-golden">50+</div>
+          <div class="text-sm text-ink/70 mt-1">Projects Completed</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-golden">100%</div>
+          <div class="text-sm text-ink/70 mt-1">Happy Clients</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-golden">100%</div>
+          <div class="text-sm text-ink/70 mt-1">Satisfaction rate</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-golden">3</div>
+          <div class="text-sm text-ink/70 mt-1">Years Experience</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CTA Section -->
+    <div class="mt-16 text-center">
+      <h2 class="text-3xl font-bold text-ink">Ready to Start Your Project?</h2>
+      <p class="mt-3 text-ink/80 max-w-2xl mx-auto">
+        Let's discuss how we can bring your vision to life with our expertise in web development, SEO, and digital marketing.
+      </p>
+      
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="./contact.html"
+          data-type="general"
+          data-preset="Portfolio Inquiry"
+          class="btn-primary px-8 py-3 text-lg"
+        >
+          Start Your Project →
+        </a>
+        
+        <a
+          href="./index.html#services"
+          class="inline-flex items-center justify-center rounded-xl border border-pink-200 px-8 py-3 text-ink font-semibold hover:bg-pink-50 transition"
+        >
+          View Our Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Footer -->
+  <footer class="bg-white border-t border-pink-100">
+    <div class="mx-auto max-w-7xl px-4 py-12">
+      <!-- Footer Grid -->
+      <div class="grid md:grid-cols-4 gap-10">
+        <!-- Company Info -->
+        <div>
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-12 rounded-xl overflow-hidden shadow-sm">
+              <img 
+                src="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg"
+                alt="Manglotel Logo"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div class="text-2xl logo-cursive text-golden">
+              Manglotel
+            </div>
+          </div>
+          
+          <p class="mt-4 text-sm text-ink/70 leading-relaxed">
+            Modern websites + marketing support to help your business grow with professional solutions.
+          </p>
+          
+          <div class="mt-6 flex items-center gap-4">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/918878881555"
+              target="_blank"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-xl shadow-md hover:scale-110 transition">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            
+            <!-- Email -->
+            <a href="mailto:vrtechsolutions25@gmail.com"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-red-500 text-white text-xl shadow-md hover:scale-110 transition">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            
+            <!-- Phone -->
+            <a href="tel:8878881555"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500 text-white text-xl shadow-md hover:scale-110 transition">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-bold text-ink text-lg">Quick Links</h4>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a class="footerlink hover:text-golden transition" href="./index.html#home">Home</a></li>
+            <li><a class="footerlink hover:text-golden transition" href="./index.html#about">About</a></li>
+            <li><a class="footerlink hover:text-golden transition" href="./index.html#services">Services</a></li>
+            <li><a class="footerlink hover:text-golden transition" href="./portfolio.html">Portfolio</a></li>
+            <li><a class="footerlink hover:text-golden transition" href="./index.html#pricing">Pricing</a></li>
+            <li><a class="footerlink hover:text-golden transition" href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Services -->
+        <div>
+          <h4 class="font-bold text-ink text-lg">Services</h4>
+          <ul class="mt-4 space-y-2 text-sm text-ink/70">
+            <li>Website Development</li>
+            <li>SEO Services</li>
+            <li>Digital Marketing</li>
+            <li>Social Media Management</li>
+            <li>Google Ads Setup</li>
+            <li>1 Year Free Maintenance</li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div>
+          <h4 class="font-bold text-ink text-lg">Contact Info</h4>
+          <ul class="mt-4 space-y-3 text-sm text-ink/70">
+            <li>
+              <i class="fa-solid fa-envelope text-golden mr-2"></i>
+              vrtechsolutions25@gmail.com
+            </li>
+            <li>
+              <i class="fa-solid fa-phone text-golden mr-2"></i>
+              +91 8878881555, +91 9783396290
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot text-golden mr-2"></i>
+              Behind Rajkamal Hotel, Bhuwana, Udaipur (Rajasthan, India)
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bottom Footer -->
+      <div class="mt-12 pt-6 border-t border-pink-100 text-sm text-ink/60 flex flex-col md:flex-row items-center justify-between gap-3">
+        <p>© 2026 Manglotel | Billing Powered by VrTechSolution</p>
+        <p>  Showcasing Our Best Work</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menuBtn').addEventListener('click', function() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+    
+    // Portfolio filtering
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+      const portfolioItems = document.querySelectorAll('.portfolio-card');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          const filterValue = this.getAttribute('data-filter');
+          
+          // Filter portfolio items
+          portfolioItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category').includes(filterValue)) {
+              item.style.display = 'block';
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'scale(1)';
+              }, 10);
+            } else {
+              item.style.opacity = '0';
+              item.style.transform = 'scale(0.8)';
+              setTimeout(() => {
+                item.style.display = 'none';
+              }, 300);
+            }
+          });
+        });
+      });
+      
+      // Animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, observerOptions);
+      
+      // Observe animated elements
+      document.querySelectorAll('.animate-fadeUp').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

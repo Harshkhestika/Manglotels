@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Manglotel — Web Development & Growth Agency</title>
+
+  <meta name="description" content="Manglotel provides modern website development, SEO, digital marketing, social media management, Google Ads setup, and business growth support with 1 year free service facility included." />
+
+  <meta property="og:image" content="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg" />
+
+  <link rel="icon" href="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config with Light Cream, Pink & Golden Theme -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#FFF9F5",
+              100: "#FFF4ED",
+              200: "#FFE8D9",
+              300: "#FFD6BA",
+              400: "#FFBF9F",
+              500: "#D4AF37",
+              600: "#B8941F",
+              700: "#9C7A18",
+              800: "#806012",
+              900: "#64480C"
+            },
+            cream: "#FFF9F5",
+            pink: {
+              50: "#FFF5F7",
+              100: "#FFE1E8",
+              200: "#FFC7D4",
+              300: "#FFADC0",
+              400: "#FF93AC",
+              500: "#FF6B9D"
+            },
+            golden: "#D4AF37",
+            ink: "#2D1B0E"
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(212, 175, 55, 0.15)",
+            card: "0 10px 25px rgba(212, 175, 55, 0.10)"
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+  .service-card {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ec4899, #f472b6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .animate-fadeUp {
+    animation: fadeUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .animate-fadeUp.delay-75 {
+    animation-delay: 0.15s;
+  }
+  
+  .animate-fadeUp.delay-100 {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg border border-pink-500 bg-pink-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-pink-600 hover:border-pink-600 transition-all duration-300;
+  }
+
+  /* Simple Border Flow Animation */
+  @keyframes border-flow {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes border-flow-reverse {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes corner-expand {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 4rem;
+    }
+  }
+  
+  .animate-border-flow {
+    animation: border-flow 1s ease-in-out;
+  }
+  
+  .animate-border-flow-reverse {
+    animation: border-flow-reverse 1s ease-in-out;
+  }
+  
+  .animate-corner-expand {
+    animation: corner-expand 0.5s ease-out forwards;
+  }
+  
+  /* Simple hover effects */
+  .price-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .price-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Featured card subtle highlight */
+  .featured {
+    position: relative;
+  }
+  
+  .featured::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 14px;
+    background: linear-gradient(45deg, #fbbf24, #f59e0b, #fbbf24);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .featured:hover::before {
+    opacity: 0.3;
+  }
+
+  </style>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body class="bg-cream text-ink selection:bg-pink-100 selection:text-ink">
+
+  <!-- Top Announcement -->
+  <div class="w-full bg-gradient-to-r from-pink-50 to-brand-50 border-b border-pink-100">
+    <div class="mx-auto max-w-7xl px-4 py-2 text-sm flex items-center justify-between">
+      <p class="text-ink">
+        <span class="font-semibold text-golden">1 Year Free Service Facility Included</span> — Ask for a free consultation today.
+      </p>
+      <!-- <a href="./contact.html" class="text-golden font-semibold hover:text-brand-700">Contact →</a> -->
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="sticky top-0 z-50 bg-cream/95 backdrop-blur border-b border-pink-100">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex items-center justify-between py-4">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-golden to-brand-600 flex items-center justify-center shadow-sm overflow-hidden">
+  
+  <img 
+    src="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg" 
+    alt="Logo"
+    class="h-full w-full object-cover rounded-xl"
+  />
+
+</div>
+
+          <div class="leading-tight">
+            <div class="text-2xl logo-cursive text-golden">Manglotel</div>
+            <div class="text-xs text-ink/70 -mt-1">Web • SEO • Marketing</div>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium">
+          <a class="navlink" href="#home">Home</a>
+          <a class="navlink" href="#about">About</a>
+          <a class="navlink" href="#services">Services</a>
+          <a class="navlink" href="portfolio.html">Portfolio</a>
+          <a class="navlink" href="#pricing">Pricing</a>
+          <a class="navlink" href="#reviews">Reviews</a>
+          <a class="navlink" href="./contact.html">Contact</a>
+
+          <a
+            class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-golden to-brand-600 px-4 py-2 text-white shadow-soft hover:shadow-lg transition"
+            href="./contact.html"
+            data-preset="Free Consultation"
+            data-type="general"
+          >
+            Free Consultation
+          </a>
+        </nav>
+
+        <!-- Mobile Button -->
+        <button id="menuBtn" class="lg:hidden inline-flex items-center justify-center rounded-xl border border-pink-200 px-3 py-2 text-ink hover:bg-pink-50">
+          <span class="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="lg:hidden hidden pb-4">
+        <div class="grid gap-2 text-sm font-medium">
+          <a class="mobilelink" href="#home">Home</a>
+          <a class="mobilelink" href="#about">About</a>
+          <a class="mobilelink" href="#services">Services</a>
+          <a class="mobilelink" href="portfolio.html">Portfolio</a>
+          <a class="mobilelink" href="#pricing">Pricing</a>
+          <a class="mobilelink" href="#reviews">Reviews</a>
+          <a class="mobilelink" href="./contact.html">Contact</a>
+
+          <a
+            class="mt-2 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-golden to-brand-600 px-4 py-2 text-white shadow-sm hover:shadow-lg transition"
+            href="./contact.html"
+            data-preset="Free Consultation"
+            data-type="general"
+          >
+            Free Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section - IMPROVED with Digital Platform Text -->
+  <section id="home" class="relative overflow-hidden">
+    <!-- Decorative gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-pink-50 via-cream to-brand-50"></div>
+    <div class="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-pink-200 blur-3xl opacity-40"></div>
+    <div class="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-brand-100 blur-3xl opacity-40"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-16 lg:py-24">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-fadeUp">
+          <div class="inline-flex items-center gap-2 rounded-full border border-golden/30 bg-white/80 px-4 py-2 text-sm text-ink shadow-sm">
+            <span class="h-2 w-2 rounded-full bg-golden"></span>
+            <span class="font-semibold text-golden">Manglotel</span> — Your Digital Growth Partner
+          </div>
+
+          <h1 class="mt-6 text-4xl lg:text-5xl font-bold tracking-tight text-ink">
+            Transform Your Business with Our Complete Digital Platform
+          </h1>
+
+          <p class="mt-4 text-lg text-ink/80 leading-relaxed">
+            <strong>Manglotel is a comprehensive digital platform</strong> that combines website development, SEO optimization, digital marketing, and business growth tools in one place. We provide an all-in-one solution to establish, manage, and scale your online presence with ease. From building stunning websites to driving targeted traffic and converting visitors into customers — everything you need is on our platform. Plus, <span class="font-semibold text-golden">1 year free service facility included</span> to ensure your continued success.
+          </p>
+
+          <div class="mt-7 flex flex-col sm:flex-row gap-3">
+            <a
+              href="./contact.html"
+              data-type="general"
+              data-preset="Get Free Consultation"
+              class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-golden to-brand-600 px-6 py-3 text-white font-semibold shadow-soft hover:shadow-lg transition"
+            >
+              Get Free Consultation
+            </a>
+
+            <a
+              href="#pricing"
+              class="inline-flex items-center justify-center rounded-xl border border-pink-200 px-6 py-3 text-ink font-semibold hover:bg-pink-50 transition"
+            >
+              View Pricing
+            </a>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+            <div class="rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-card">
+              <div class="font-bold text-golden">All-in-One Platform</div>
+              <div class="text-ink/70 mt-1">Complete digital solution</div>
+            </div>
+            <div class="rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-card">
+              <div class="font-bold text-golden">SEO Integrated</div>
+              <div class="text-ink/70 mt-1">Built-in optimization</div>
+            </div>
+            <div class="rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-card">
+              <div class="font-bold text-golden">Full Support</div>
+              <div class="text-ink/70 mt-1">1 year free service</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual -->
+        <div class="animate-fadeUp delay-150">
+          <div class="rounded-3xl border border-pink-100 bg-white/90 shadow-soft overflow-hidden">
+            <div class="p-6 border-b border-pink-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="h-3 w-3 rounded-full bg-pink-300"></span>
+                <span class="h-3 w-3 rounded-full bg-brand-300"></span>
+                <span class="h-3 w-3 rounded-full bg-golden/40"></span>
+              </div>
+              </div>
+
+            <div class="p-6">
+              <div class="grid gap-4">
+                <div class="rounded-2xl bg-gradient-to-br from-pink-50 to-brand-50 p-5 border border-pink-100">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <div class="text-sm text-ink/70">Platform Performance</div>
+                      <div class="text-2xl font-bold text-ink mt-1">Fast + Reliable</div>
+                    </div>
+                    <div class="h-12 w-12 rounded-2xl bg-white border border-golden/30 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-golden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div class="rounded-2xl border border-pink-100 bg-white/80 p-5">
+                    <div class="text-sm text-ink/70">Digital Tools</div>
+                    <div class="mt-1 font-semibold text-ink">All-in-one platform</div>
+                    <div class="mt-3 h-2 rounded-full bg-pink-100 overflow-hidden">
+                      <div class="h-full w-[92%] bg-gradient-to-r from-golden to-brand-500"></div>
+                    </div>
+                    <div class="mt-2 text-xs text-ink/60">Integrated services</div>
+                  </div>
+
+                  <div class="rounded-2xl border border-pink-100 bg-white/80 p-5">
+                    <div class="text-sm text-ink/70">Growth Ready</div>
+                    <div class="mt-1 font-semibold text-ink">Scale with ease</div>
+                    <div class="mt-3 h-2 rounded-full bg-pink-100 overflow-hidden">
+                      <div class="h-full w-[88%] bg-gradient-to-r from-pink-400 to-brand-400"></div>
+                    </div>
+                    <div class="mt-2 text-xs text-ink/60">Business expansion</div>
+                  </div>
+                </div>
+
+                <div class="rounded-2xl border border-pink-100 bg-white/80 p-5">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <div class="text-sm text-ink/70">Service Included</div>
+                      <div class="mt-1 font-semibold text-ink">1 year free platform access</div>
+                    </div>
+                    <a
+                      href="./contact.html"
+                      data-type="service"
+                      data-preset="1 Year Free Maintenance Support"
+                      class="text-golden font-semibold hover:text-brand-700"
+                    >
+                      Get Started →
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section - IMPROVED with Images -->
+  <section id="about" class="mx-auto max-w-7xl px-4 py-16">
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <div class="animate-fadeUp">
+        <h2 class="text-3xl font-bold text-ink">About Manglotel</h2>
+        <p class="mt-4 text-ink/80 leading-relaxed">
+          We are a trusted digital partner for business success — building modern websites and running marketing that actually supports growth.
+          From clean design to SEO foundations, we focus on performance, clarity, and conversions.
+        </p>
+
+        <!-- Team Images -->
+        <div class="mt-6 grid grid-cols-2 gap-4">
+          <div class="rounded-2xl overflow-hidden shadow-card border border-pink-100">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWpfHYbR6LoBPalU4tkcsofFIR0bz_o1B21w&s" alt="Team collaboration" class="w-full h-48 object-cover" />
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-card border border-pink-100">
+            <img src="https://i.pinimg.com/736x/90/56/d3/9056d37cff0fcead7492b2a4fb4b01cf.jpg" alt="Digital platform workspace" class="w-full h-48 object-cover" />
+          </div>
+        </div>
+
+        <div class="mt-6 grid gap-4">
+          <div class="flex gap-3">
+            <div class="mt-1 h-9 w-9 rounded-xl bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-golden" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 5a2 2 0 012-2h4a2 2 0 012 2v2H2V5z" />
+                <path fill-rule="evenodd" d="M2 9h16v6a2 2 0 01-2 2H4a2 2 0 01-2-2V9zm6 2a1 1 0 000 2h4a1 1 0 100-2H8z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-ink">Modern Website Designs</div>
+              <div class="text-ink/70 text-sm">Professional layout, clean UI, and responsive experience.</div>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="mt-1 h-9 w-9 rounded-xl bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-golden" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3a1 1 0 00.293.707l2 2a1 1 0 101.414-1.414L11 9.586V7z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-ink">Fast Delivery</div>
+              <div class="text-ink/70 text-sm">Clear milestones, quick turnaround, and on-time launch.</div>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="mt-1 h-9 w-9 rounded-xl bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-golden" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3z" />
+                <path fill-rule="evenodd" d="M12 10c-3.866 0-7 2.239-7 5v1a2 2 0 002 2h10a2 2 0 002-2v-1c0-2.761-3.134-5-7-5z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-ink">Affordable Pricing</div>
+              <div class="text-ink/70 text-sm">Simple plans that fit small to large businesses.</div>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="mt-1 h-9 w-9 rounded-xl bg-gradient-to-br from-pink-100 to-brand-100 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-golden" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M11.3 1.046a1 1 0 00-1.6 0l-1.4 1.8a1 1 0 01-.5.35l-2.2.8a1 1 0 00-.6 1.4l.9 2.1a1 1 0 010 .6l-.9 2.1a1 1 0 00.6 1.4l2.2.8a1 1 0 01.5.35l1.4 1.8a1 1 0 001.6 0l1.4-1.8a1 1 0 01.5-.35l2.2-.8a1 1 0 00.6-1.4l-.9-2.1a1 1 0 010-.6l.9-2.1a1 1 0 00-.6-1.4l-2.2-.8a1 1 0 01-.5-.35l-1.4-1.8zM10 12a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-ink">Full Support Included</div>
+              <div class="text-ink/70 text-sm">Guidance after launch with maintenance options.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animate-fadeUp delay-150">
+        <div class="rounded-3xl border border-pink-100 bg-white/90 shadow-card p-6">
+          <h3 class="text-xl font-bold text-ink">Why choose Manglotel?</h3>
+          <p class="mt-3 text-ink/80 leading-relaxed">
+            We combine design, development, and marketing into one clear workflow.
+            You get a professional website plus growth support — not just a "pretty page".
+          </p>
+
+          <div class="mt-6 grid sm:grid-cols-2 gap-4">
+            <div class="rounded-2xl bg-gradient-to-br from-pink-50 to-white border border-pink-100 p-4">
+              <div class="font-semibold text-ink">Conversion Focused</div>
+              <div class="text-sm text-ink/70 mt-1">CTAs, clarity, trust elements.</div>
+            </div>
+            <div class="rounded-2xl bg-gradient-to-br from-brand-50 to-white border border-pink-100 p-4">
+              <div class="font-semibold text-ink">Mobile First</div>
+              <div class="text-sm text-ink/70 mt-1">Optimized for every screen.</div>
+            </div>
+            <div class="rounded-2xl bg-gradient-to-br from-pink-50 to-white border border-pink-100 p-4">
+              <div class="font-semibold text-ink">SEO Foundation</div>
+              <div class="text-sm text-ink/70 mt-1">Structure + speed + best practices.</div>
+            </div>
+            <div class="rounded-2xl bg-gradient-to-br from-brand-50 to-white border border-pink-100 p-4">
+              <div class="font-semibold text-ink">Growth Support</div>
+              <div class="text-sm text-ink/70 mt-1">Ads + social + strategy guidance.</div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <a
+              href="./contact.html"
+              data-type="general"
+              data-preset="Project Inquiry"
+              class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-golden to-brand-600 px-5 py-3 text-white font-semibold shadow-soft hover:shadow-lg transition"
+            >
+              Start a Project
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Services Section - IMPROVED with Animations & Hover Effects -->
+<section id="services" class="bg-gradient-to-br from-pink-50 to-brand-50 border-y border-pink-100">
+  <div class="mx-auto max-w-7xl px-4 py-16">
+    <div class="flex items-end justify-between gap-6 flex-wrap">
+      <div class="animate-fadeUp">
+        <h2 class="text-3xl font-bold text-ink">Services</h2>
+        <p class="mt-3 text-ink/80 max-w-2xl">
+          Everything you need for a strong online presence — from building your site to scaling with SEO and ads.
+        </p>
+      </div>
+      <a
+        href="./contact.html"
+        data-type="general"
+        data-preset="Request Services"
+        class="animate-fadeUp inline-flex items-center justify-center rounded-xl border border-pink-200 bg-white px-5 py-3 text-ink font-semibold hover:bg-pink-50 hover:border-pink-300 hover:scale-105 transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md"
+      >
+        Request Services →
+      </a>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Website Development -->
+      <div class="service-card animate-fadeUp group relative overflow-hidden rounded-xl border border-pink-100 bg-white transition-all duration-500 hover:scale-[1.02] hover:border-pink-300 hover:shadow-xl">
+        <div class="relative overflow-hidden">
+          <div class="rounded-xl overflow-hidden mb-4 border-b border-pink-100">
+            <img 
+              src="https://i.pinimg.com/736x/74/94/e7/7494e727ccc83c930132ae53c120cf2d.jpg" 
+              alt="Web Development" 
+              class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+          <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+            <span class="text-xs font-semibold text-pink-600">Popular</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-ink group-hover:text-pink-700 transition-colors duration-300">Website Development</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed group-hover:text-ink/80 transition-colors duration-300">
+            Modern, responsive websites built for speed, clarity, and conversions.
+          </p>
+          <a
+            href="./contact.html"
+            data-type="service"
+            data-preset="Website Development"
+            class="mt-5 btn-primary inline-flex items-center group-hover:bg-pink-600 group-hover:border-pink-600 transform group-hover:scale-105 transition-all duration-300"
+          >
+            Get Started
+            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- SEO Optimization -->
+      <div class="service-card animate-fadeUp delay-75 group relative overflow-hidden rounded-xl border border-pink-100 bg-white transition-all duration-500 hover:scale-[1.02] hover:border-pink-300 hover:shadow-xl">
+        <div class="relative overflow-hidden">
+          <div class="rounded-xl overflow-hidden mb-4 border-b border-pink-100">
+            <img 
+              src="https://i.pinimg.com/736x/d5/44/3d/d5443d71e44c3ffbb73bd492d1b667bd.jpg" 
+              alt="SEO Analytics" 
+              class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-ink group-hover:text-pink-700 transition-colors duration-300">SEO Optimization</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed group-hover:text-ink/80 transition-colors duration-300">
+            On-page SEO, structure improvements, and performance best practices.
+          </p>
+          <a
+            href="./contact.html"
+            data-type="service"
+            data-preset="SEO Optimization"
+            class="mt-5 btn-primary inline-flex items-center group-hover:bg-pink-600 group-hover:border-pink-600 transform group-hover:scale-105 transition-all duration-300"
+          >
+            Get Started
+            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Digital Marketing -->
+      <div class="service-card animate-fadeUp delay-100 group relative overflow-hidden rounded-xl border border-pink-100 bg-white transition-all duration-500 hover:scale-[1.02] hover:border-pink-300 hover:shadow-xl">
+        <div class="relative overflow-hidden">
+          <div class="rounded-xl overflow-hidden mb-4 border-b border-pink-100">
+            <img 
+              src="https://sspark.genspark.ai/cfimages?u1=ChKjV6ErIc47EufTPMB6pOIo%2FC2GFgkhBrnLAagyyuSp8G%2BhhBQxPQuFJauSQlTLynca%2FtcsVh2ccFPI2DdCSwS%2BXKTV2deK04LW40DHp%2FSS6rZKIZTGXEGDyH0UdCECjUUWgV7qMOVB5Q44OZY2wZDbFTviF9xxWXQjddMxXc6NVl%2F9moLW1d3qFx%2FB%2B80x6alyyyWj652Rxhe6ZWWzH6aqISgSyGJo7T07dV8reh4sGXn6StnQsXyGFatzg5s%3D&u2=v%2FHfiDku1suk1muW&width=2560" 
+              alt="Digital Marketing" 
+              class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-ink group-hover:text-pink-700 transition-colors duration-300">Digital Marketing</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed group-hover:text-ink/80 transition-colors duration-300">
+            Campaign planning, landing pages, and lead generation strategy.
+          </p>
+          <a
+            href="./contact.html"
+            data-type="service"
+            data-preset="Digital Marketing"
+            class="mt-5 btn-primary inline-flex items-center group-hover:bg-pink-600 group-hover:border-pink-600 transform group-hover:scale-105 transition-all duration-300"
+          >
+            Get Started
+            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Social Media Helper -->
+      <div class="service-card animate-fadeUp group relative overflow-hidden rounded-xl border border-pink-100 bg-white transition-all duration-500 hover:scale-[1.02] hover:border-pink-300 hover:shadow-xl">
+        <div class="relative overflow-hidden">
+          <div class="rounded-xl overflow-hidden mb-4 border-b border-pink-100">
+            <img 
+              src="https://sspark.genspark.ai/cfimages?u1=0IxyvPQyIW8nafBPxMZT6vesr2qc%2BEY2ABoJb1L7RAmM94CLuwvzU8OXtQ6aXNUmQM1v8jAZFiJB%2BSxhP6OlwCJOKjQ7O6n0KIT5YGFIx8ZcTza258n%2FWMPLv4RDyBPhY7OY8XlZe9%2BO8ZlU%2F1B6IsFY8lrXGzXpDdUxt4JMUagvXA%3D%3D&u2=gravQSDPHfrfX52v&width=2560" 
+              alt="Social Media" 
+              class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-ink group-hover:text-pink-700 transition-colors duration-300">Social Media Helper</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed group-hover:text-ink/80 transition-colors duration-300">
+            Social profile setup, content guidance, and consistent branding support.
+          </p>
+          <a
+            href="./contact.html"
+            data-type="service"
+            data-preset="Social Media Helper"
+            class="mt-5 btn-primary inline-flex items-center group-hover:bg-pink-600 group-hover:border-pink-600 transform group-hover:scale-105 transition-all duration-300"
+          >
+            Get Started
+            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Google Ads Setup -->
+      <div class="service-card animate-fadeUp delay-75 group relative overflow-hidden rounded-xl border border-pink-100 bg-white transition-all duration-500 hover:scale-[1.02] hover:border-pink-300 hover:shadow-xl">
+        <div class="relative overflow-hidden">
+          <div class="rounded-xl overflow-hidden mb-4 border-b border-pink-100">
+            <img 
+              src="https://sspark.genspark.ai/cfimages?u1=zUDQUL6yp2R3lnxZp6q71OX4et8jy4I%2B14WCOAiaYIRWntinHxCHlJAoDxVPnNn6nawhNIIKT5bGuyIV4hJNecx0dWfK07T9aYw%3D&u2=iO5GS3%2F392CX57le&width=2560" 
+              alt="Google Ads Dashboard" 
+              class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-ink group-hover:text-pink-700 transition-colors duration-300">Google Ads Setup</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed group-hover:text-ink/80 transition-colors duration-300">
+            Campaign setup, conversion tracking guidance, and landing page alignment.
+          </p>
+          <a
+            href="./contact.html"
+            data-type="service"
+            data-preset="Google Ads Setup"
+            class="mt-5 btn-primary inline-flex items-center group-hover:bg-pink-600 group-hover:border-pink-600 transform group-hover:scale-105 transition-all duration-300"
+          >
+            Get Started
+            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 1 Year Free Maintenance -->
+      <div class="service-card animate-fadeUp delay-100 group relative overflow-hidden rounded-xl border border-pink-100 bg-white transition-all duration-500 hover:scale-[1.02] hover:border-pink-300 hover:shadow-xl">
+        <div class="rounded-xl overflow-hidden mb-4 border-b border-pink-100 bg-gradient-to-br from-golden/20 to-brand-100 flex items-center justify-center h-48 relative">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-golden transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M12 22C7.5 20 4 16 4 11V5l8-3 8 3v6c0 5-3.5 9-8 11z" />
+          </svg>
+          <div class="absolute inset-0 bg-gradient-to-t from-golden/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute top-4 right-4 bg-golden/90 text-white rounded-full px-3 py-1 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+            <span class="text-xs font-semibold">Featured</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold text-ink group-hover:text-golden transition-colors duration-300">1 Year Free Maintenance Support</h3>
+          <p class="mt-2 text-ink/70 text-sm leading-relaxed group-hover:text-ink/80 transition-colors duration-300">
+            Peace of mind with support after delivery (facility included).
+          </p>
+          <a
+            href="./contact.html"
+            data-type="service"
+            data-preset="1 Year Free Maintenance Support"
+            class="mt-5 btn-primary inline-flex items-center group-hover:bg-golden group-hover:border-golden transform group-hover:scale-105 transition-all duration-300"
+          >
+            Get Started
+            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Pricing Section - Minimal Border Line Animations -->
+<section id="pricing" class="mx-auto max-w-7xl px-4 py-16">
+  <div class="text-center">
+    <h2 class="text-3xl font-bold text-ink">Pricing Plans</h2>
+    <p class="mt-3 text-ink/80 max-w-2xl mx-auto">
+      Choose a plan that fits your business stage. Domain/server/hosting included as mentioned in each plan line.
+    </p>
+  </div>
+
+  <div class="mt-10 grid lg:grid-cols-3 gap-8 items-stretch">
+    <!-- Starter -->
+    <div class="price-card group relative">
+      <!-- Animated Border Line -->
+      <div class="absolute inset-0 overflow-hidden rounded-xl">
+        <div class="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-pink-400 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-border-flow transition-opacity duration-300"></div>
+      </div>
+      
+      <div class="relative rounded-xl border border-pink-100 bg-white p-6 transition-all duration-300 hover:border-pink-200 hover:shadow-lg h-full">
+        <!-- Card Header -->
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-ink">Starter</h3>
+          <span class="badge bg-pink-50 text-pink-700 border border-pink-200">Small Business</span>
+        </div>
+        <p class="mt-2 text-ink/70">Perfect for small businesses</p>
+
+        <!-- Price Box -->
+        <div class="mt-5 p-4 rounded-lg bg-pink-50 border border-pink-100">
+          <div class="text-3xl font-bold text-ink">₹35,000</div>
+          <div class="text-sm text-ink/60 mt-1">
+            Making Charge + Domain & Hosting + 1 year
+          </div>
+        </div>
+
+        <!-- Features List -->
+        <ul class="mt-6 space-y-3 text-sm text-ink/80">
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Responsive Design</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Basic SEO Setup</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Contact Form</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>3 months service support</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Social Media Integration</span>
+          </li>
+        </ul>
+
+        <!-- CTA Button -->
+        <a href="./contact.html" data-type="plan" data-preset="Starter Plan"
+          class="mt-8 block rounded-lg bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-6 w-full text-center transition-colors duration-300">
+          Choose Plan
+        </a>
+      </div>
+    </div>
+
+    <!-- Professional (Featured) -->
+    <div class="price-card featured group relative">
+      <!-- Animated Border Lines (Top & Bottom) -->
+      <div class="absolute inset-0 overflow-hidden rounded-xl">
+        <div class="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-border-flow transition-opacity duration-300"></div>
+        <div class="absolute -bottom-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-border-flow-reverse transition-opacity duration-300"></div>
+      </div>
+      
+      <div class="relative rounded-xl border-2 border-amber-200 bg-white p-6 transition-all duration-300 hover:shadow-lg h-full">
+        <!-- Card Header -->
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-ink">Professional</h3>
+          <span class="badge bg-amber-50 text-amber-700 border border-amber-200">Best Value</span>
+        </div>
+        <p class="mt-2 text-ink/70">Best for growing businesses</p>
+
+        <!-- Price Box -->
+        <div class="mt-5 p-4 rounded-lg bg-amber-50 border border-amber-100">
+          <div class="text-3xl font-bold text-ink">₹50,000</div>
+          <div class="text-sm text-ink/60 mt-1">
+            Making Charge + Domain & Server & Hosting + 1 year
+          </div>
+        </div>
+
+        <!-- Features List -->
+        <ul class="mt-6 space-y-3 text-sm text-ink/80">
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Premium Design</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Advanced SEO</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Blog Integration</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Unlimited Revisions</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>6 Months Support</span>
+          </li>
+        </ul>
+
+        <!-- CTA Button -->
+        <a href="./contact.html" data-type="plan" data-preset="Professional Plan"
+          class="mt-8 block rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-6 w-full text-center transition-colors duration-300">
+          Choose Plan
+        </a>
+      </div>
+    </div>
+
+    <!-- Enterprise -->
+    <div class="price-card group relative">
+      <!-- Animated Border Corners -->
+      <div class="absolute inset-0 overflow-hidden rounded-xl">
+        <div class="absolute -top-px -left-px w-16 h-px bg-gradient-to-r from-indigo-400 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-corner-expand transition-all duration-300"></div>
+        <div class="absolute -top-px -right-px w-16 h-px bg-gradient-to-l from-indigo-400 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-corner-expand transition-all duration-300 delay-100"></div>
+      </div>
+      
+      <div class="relative rounded-xl border border-indigo-100 bg-white p-6 transition-all duration-300 hover:border-indigo-200 hover:shadow-lg h-full">
+        <!-- Card Header -->
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-ink">Enterprise</h3>
+          <span class="badge bg-indigo-50 text-indigo-700 border border-indigo-200">Scale</span>
+        </div>
+        <p class="mt-2 text-ink/70">For large scale operations</p>
+
+        <!-- Price Box -->
+        <div class="mt-5 p-4 rounded-lg bg-indigo-50 border border-indigo-100">
+          <div class="text-3xl font-bold text-ink">₹65,000</div>
+          <div class="text-sm text-ink/60 mt-1">
+            Making Charge + Domain & Server & Hosting + 1 year
+          </div>
+        </div>
+
+        <!-- Features List -->
+        <ul class="mt-6 space-y-3 text-sm text-ink/80">
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-indigo-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Custom Design</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-indigo-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Complete SEO Package</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-indigo-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>E-commerce Ready</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-indigo-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Unlimited Revisions</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-indigo-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>12 Months Support</span>
+          </li>
+        </ul>
+
+        <!-- CTA Button -->
+        <a href="./contact.html" data-type="plan" data-preset="Enterprise Plan"
+          class="mt-8 block rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-6 w-full text-center transition-colors duration-300">
+          Choose Plan
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  <!-- Reviews Section - with Client Images -->
+  <section id="reviews" class="bg-gradient-to-br from-pink-50 to-brand-50 border-y border-pink-100">
+    <div class="mx-auto max-w-7xl px-4 py-16">
+      <div class="text-center animate-fadeUp">
+        <h2 class="text-3xl font-bold text-ink">Client Reviews</h2>
+        <p class="mt-3 text-ink/80">Real business-friendly service experience from our clients.</p>
+      </div>
+
+      <div class="mt-10 grid lg:grid-cols-3 gap-6">
+        <div class="review-card animate-fadeUp">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://sspark.genspark.ai/cfimages?u1=VLIlfGnF8Un1DYntPhnaFVSk%2Fjqg45g4W0O7dJPkYUZ6Nr%2Bgu66zXCvWbaXmMbTaZ72HjB60nqXz0sRjM7kY3%2F77ADd72fSIxiqgEwhCU%2BUIprNJm8w34FYF4rvNpwsxYXDsGRMLu2Z%2FWanLtQF33rb5j%2BIo&u2=Dg3rMzxRsPZnEaoK&width=2560" alt="Client" class="h-12 w-12 rounded-full object-cover border-2 border-golden" />
+            <div>
+              <div class="font-semibold text-ink">Raj Kumar</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-ink/80">
+            "Manglotel built my website perfectly and helped my business grow with their SEO services!"
+          </p>
+          <div class="mt-4 text-sm text-ink/60">— Local Business Owner</div>
+        </div>
+
+        <div class="review-card animate-fadeUp delay-75">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://sspark.genspark.ai/cfimages?u1=38KKvQ%2Ffv1RjSrV0eX%2B1SMvVh6ZAPK5W7hYPW61vwBGk%2BtIELAD9jWW%2B2eTqMr2YBZIJqG%2FKzCnXHK2KMCzTtoGsM7%2FeYMngDDehkGRpSG8gwUQXof9VtlE%2FTchO6pO69g%3D%3D&u2=MJi9vNgxmSYnniLc&width=2560" alt="Client" class="h-12 w-12 rounded-full object-cover border-2 border-golden" />
+            <div>
+              <div class="font-semibold text-ink">Priya Sharma</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-ink/80">
+            "Professional design, fast delivery, and excellent support after launch. Highly recommended!"
+          </p>
+          <div class="mt-4 text-sm text-ink/60">— Startup Founder</div>
+        </div>
+
+        <div class="review-card animate-fadeUp delay-100">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://sspark.genspark.ai/cfimages?u1=rKPaSw7RY9OzzV1r4aFQXz1TRklQhct4buKDmVy%2Bds%2B1K1NMX49p%2B1n4L%2B%2Fzav7mCaiuVvbROyAFBGXd3MZ6sLj72RO4rRikWusX6JfK5hGXcc%2BH2tiHlg5uE75MhkX7%2FUCOcJ7gpGkSJK1fy64tnEVhTpegYTIaklTOwZyKP9J2XMHHBr4Czz%2F78drCfew%2Fw04Epdx7PSSkKXDENh2HFTQZIBdZR%2FVE2WCWGFbGr%2FeqJSzF4vREl3csJpHj9b10jvTfSlYrQNpQDaJY%2FnTLCiEH2CUMzvp05iNvDN6MoYllFVy3wJNE3zSryTEpm4Iv5bJmbPd1suOi7THtbXiQjFv%2BTXjxCP88VNA%3D&u2=A%2BEh2oFwxx%2FCTWvw&width=2560" alt="Client" class="h-12 w-12 rounded-full object-cover border-2 border-golden" />
+            <div>
+              <div class="font-semibold text-ink">Amit Verma</div>
+              <div class="stars">★★★★☆</div>
+            </div>
+          </div>
+          <p class="text-ink/80">
+            "Our SEO improved significantly and the website looks premium on mobile devices."
+          </p>
+          <div class="mt-4 text-sm text-ink/60">— Service Company CEO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section - Removed FAQ, Direct to Contact Page -->
+  <section id="contact" class="bg-gradient-to-br from-pink-100 to-brand-100 border-t border-pink-200">
+    <div class="mx-auto max-w-7xl px-4 py-16">
+      <div class="text-center animate-fadeUp">
+        <h2 class="text-3xl font-bold text-ink">Ready to Get Started?</h2>
+        <p class="mt-3 text-ink/80 max-w-2xl mx-auto">
+          Let's discuss your project and create something amazing together. Click below to contact us directly.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="./contact.html"
+            data-type="general"
+            data-preset="General Inquiry"
+            class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-golden to-brand-600 px-8 py-4 text-white font-semibold shadow-soft hover:shadow-lg transition text-lg"
+          >
+            Contact Us Now →
+          </a>
+
+          <a
+            href="./contact.html"
+            data-type="plan"
+            data-preset="Professional Plan"
+            class="inline-flex items-center justify-center rounded-xl border-2 border-white bg-white/80 px-8 py-4 text-ink font-semibold hover:bg-white transition text-lg"
+          >
+            Get Free Consultation
+          </a>
+        </div>
+
+        <div class="mt-10 rounded-3xl border border-pink-200 bg-white/80 shadow-card p-8 max-w-2xl mx-auto">
+          <div class="grid sm:grid-cols-3 gap-6 text-center">
+            <div>
+              <div class="text-2xl font-bold text-golden">50+</div>
+              <div class="text-sm text-ink/70 mt-1">Projects Delivered</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-golden">100%</div>
+              <div class="text-sm text-ink/70 mt-1">Happy Clients</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-golden">100%</div>
+              <div class="text-sm text-ink/70 mt-1">Satisfaction Rate</div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Font Awesome (Required for Icons) -->
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<!-- Footer -->
+<footer class="bg-white border-t border-pink-100">
+  <div class="mx-auto max-w-7xl px-4 py-12">
+
+    <!-- Footer Grid -->
+    <div class="grid md:grid-cols-4 gap-10">
+
+      <!-- ================= Company Info ================= -->
+      <div>
+
+        <!-- Logo + Company Name -->
+        <div class="flex items-center gap-3">
+
+          <!-- Logo Image -->
+          <div class="h-12 w-12 rounded-xl overflow-hidden shadow-sm">
+            <img 
+              src="https://i.pinimg.com/736x/99/6f/ae/996fae1687b6b0f066daa670261bc215.jpg"
+              alt="Manglotel Logo"
+              class="h-full w-full object-cover"
+            />
+          </div>
+
+          <!-- Name -->
+          <div class="text-2xl logo-cursive text-golden">
+            Manglotel
+          </div>
+        </div>
+
+        <!-- Description -->
+        <p class="mt-4 text-sm text-ink/70 leading-relaxed">
+          Modern websites + marketing support to help your business grow with
+          professional solutions.
+        </p>
+
+        <!-- Modern Contact Icons (Lower Icons) -->
+        <div class="mt-6 flex items-center gap-4">
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/918878881555"
+            target="_blank"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white text-xl shadow-md hover:scale-110 transition">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:vrtechsolutions25@gmail.com"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-red-500 text-white text-xl shadow-md hover:scale-110 transition">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+
+          <!-- Phone -->
+          <a href="tel:8878881555"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500 text-white text-xl shadow-md hover:scale-110 transition">
+            <i class="fa-solid fa-phone"></i>
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- ================= Quick Links ================= -->
+      <div>
+        <h4 class="font-bold text-ink text-lg">Quick Links</h4>
+
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a class="footerlink hover:text-golden transition" href="#about">About</a></li>
+          <li><a class="footerlink hover:text-golden transition" href="#services">Services</a></li>
+          <li><a class="footerlink hover:text-golden transition" href="portfolio.html">Portfolio</a></li>
+          <li><a class="footerlink hover:text-golden transition" href="#pricing">Pricing</a></li>
+          <li><a class="footerlink hover:text-golden transition" href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+
+      <!-- ================= Services ================= -->
+      <div>
+        <h4 class="font-bold text-ink text-lg">Services</h4>
+
+        <ul class="mt-4 space-y-2 text-sm text-ink/70">
+          <li>Website Development</li>
+          <li>SEO Services</li>
+          <li>Digital Marketing</li>
+          <li>Social Media Management</li>
+          <li>Google Ads Setup</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= Contact Info ================= -->
+      <div>
+        <h4 class="font-bold text-ink text-lg">Contact Info</h4>
+
+        <ul class="mt-4 space-y-3 text-sm text-ink/70">
+          <li>
+            <i class="fa-solid fa-envelope text-golden mr-2"></i>
+            vrtechsolutions25@gmail.com
+          </li>
+
+          <li>
+            <i class="fa-solid fa-phone text-golden mr-2"></i>
+            +91 8878881555, +91 9783396290
+          </li>
+
+          <li>
+            <i class="fa-solid fa-location-dot text-golden mr-2"></i>
+            Behind Rajkamal Hotel, Bhuwana, Udaipur (Rajasthan, India)
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <!-- ================= Bottom Footer ================= -->
+    <div
+      class="mt-12 pt-6 border-t border-pink-100 text-sm text-ink/60 flex flex-col md:flex-row items-center justify-between gap-3"
+    >
+      <p>© 2026 Manglotel | Billing Powered by VrTechSolution</p>
+    </div>
+
+  </div>
+</footer>
+
+
+  <script src="./script.js"></script>
+</body>
+</html>
