@@ -7,8 +7,6 @@
     menuBtn.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
     });
-
-
     
     // Close on link click
     mobileMenu.querySelectorAll("a").forEach((a) => {
