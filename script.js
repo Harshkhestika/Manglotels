@@ -8,9 +8,6 @@
       mobileMenu.classList.toggle("hidden");
     });
 
-
-
-    
     // Close on link click
     mobileMenu.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => mobileMenu.classList.add("hidden"));
