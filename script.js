@@ -15,6 +15,7 @@
       a.addEventListener("click", () => mobileMenu.classList.add("hidden"));
     });
   }
+  
 
   // Helper: build selection message
   function buildSelectedValue(type, preset) {
