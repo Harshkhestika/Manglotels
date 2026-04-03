@@ -14,8 +14,6 @@
     });
   }
 
-
-  
   // Helper: build selection message
   function buildSelectedValue(type, preset) {
     if (!preset) return "";
